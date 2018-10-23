@@ -99,7 +99,7 @@ module SamlIdp
 
     def asserted_attributes
       if principal.respond_to?(:asserted_attributes)
-        principal.send(:asserted_attributes, self.issuer_uri)
+        principal.send(:asserted_attributes, self.reference_id)
       elsif !config.attributes.nil? && !config.attributes.empty?
         config.attributes
       end
